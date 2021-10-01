@@ -1,0 +1,19 @@
+{
+  "name": "ib-replacer",
+  "version": "0.0.0",
+  "description": "image's background replacer",
+  "main": "start.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zlobnikov/shri-nodejs.git"
+  },
+  "author": "Pavel Zdobnikov (https://github.com/zlobnikov)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zlobnikov/shri-nodejs/issues"
+  },
+  "homepage": "https://github.com/zlobnikov/shri-nodejs"
+}
