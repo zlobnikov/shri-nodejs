@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/zlobnikov/shri-nodejs/issues"
   },
-  "homepage": "https://github.com/zlobnikov/shri-nodejs"
+  "homepage": "https://github.com/zlobnikov/shri-nodejs",
+  "dependencies": {
+    "backrem": "^1.1.0",
+    "express": "^4.17.1",
+    "uuid": "^8.3.2"
+  }
 }
