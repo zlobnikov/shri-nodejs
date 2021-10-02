@@ -12,10 +12,6 @@ module.exports = class Image {
     this.originalFilename = `image_${this.id}.jpg`;
   }
 
-  async saveOriginal(content) {
-    await writeFile(path.resolve(imageFolder, this.originalFilename), content);
-  }
-
   async removeOriginal() {
     await removeFile(path.resolve(imageFolder, this.originalFilename));
   }
