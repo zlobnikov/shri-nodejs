@@ -1,5 +1,6 @@
 const express = require('express');
 const multer = require('multer');
+const path = require('path');
 
 const { PORT, imageFolder } = require('./config');
 const db = require('./entities/Database');
@@ -46,6 +47,11 @@ app.delete('/image/:id', async (req, res) => {
   const id = await db.remove(imageId);
 
   return res.json({id});
+});
+
+app.get('/image/:id', (req, res) => {
+  const imageId = req.params.id;
+  res.download(path.resolve(imageFolder, imageId + '.jpg'));
 });
 
 app.listen(PORT, () => {
