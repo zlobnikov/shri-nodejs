@@ -1,6 +1,7 @@
 const path = require('path');
 
 const { imageFolder } = require('../config');
+const { writeFile, removeFile } = require('../utils/fs');
 const { generateId } = require('../utils/generateId');
 
 module.exports = class Image {

@@ -1,6 +1,7 @@
 const { EventEmitter } = require('events');
 const { existsSync } = require('fs');
 const { dbDumpFile } = require('../config');
+const { writeFile } = require('../utils/fs');
 const { prettifyJsonToString } = require('../utils/prettifyJsonToString');
 const Image = require('./Image');
 
