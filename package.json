@@ -4,7 +4,6 @@
   "description": "image's background replacer",
   "main": "start.js",
   "scripts": {
-    
     "start": "node src/server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -21,6 +20,7 @@
   "dependencies": {
     "backrem": "^1.1.0",
     "express": "^4.17.1",
+    "multer": "^1.4.3",
     "uuid": "^8.3.2"
   }
 }
