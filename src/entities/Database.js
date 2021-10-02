@@ -40,7 +40,6 @@ class Database extends EventEmitter {
     const imageRaw = this.idToImage[imageId];
 
     const img = new Image(imageRaw.id, imageRaw.size, imageRaw.createdAt);
-
     await img.removeOriginal();
 
     delete this.idToImage[imageId];

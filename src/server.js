@@ -40,6 +40,14 @@ app.get('/list', (req, res) => {
   return res.send(allImages);
 });
 
+app.delete('/image/:id', async (req, res) => {
+  const imageId = req.params.id;
+
+  const id = await db.remove(imageId);
+
+  return res.json({id});
+});
+
 app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);
 });

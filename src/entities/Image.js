@@ -1,7 +1,7 @@
 const path = require('path');
 
 const { imageFolder } = require('../config');
-const { writeFile, removeFile } = require('../utils/fs');
+const { removeFile } = require('../utils/fs');
 const { generateId } = require('../utils/generateId');
 
 module.exports = class Image {
@@ -10,7 +10,7 @@ module.exports = class Image {
     this.size = size;
     this.createdAt = createdAt || Date.now();
 
-    this.originalFilename = `image_${this.id}.jpg`;
+    this.originalFilename = `${this.id}.jpg`;
   }
 
   async removeOriginal() {
