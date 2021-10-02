@@ -34,6 +34,12 @@ app.post('/upload', upload.single('image'), async (req, res) => {
   return res.json({id});
 });
 
+app.get('/list', (req, res) => {
+  const allImages = db.findAll().map(img => img.toJSON());
+
+  return res.send(allImages);
+});
+
 app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);
 });

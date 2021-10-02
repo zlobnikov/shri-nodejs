@@ -50,6 +50,12 @@ class Database extends EventEmitter {
     return imageId;
   }
 
+  findAll() {
+    let allImages = Object.values(this.idToImage);
+
+    return allImages;
+  }
+
   findOne(imageId) {
     const imageRaw = this.idToImage[imageId];
 
