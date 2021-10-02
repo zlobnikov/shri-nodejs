@@ -5,8 +5,9 @@ const { writeFile, removeFile } = require('../utils/fs');
 const { generateId } = require('../utils/generateId');
 
 module.exports = class Image {
-  constructor(id, createdAt) {
+  constructor(id, size, createdAt) {
     this.id = id || generateId();
+    this.size = size;
     this.createdAt = createdAt || Date.now();
 
     this.originalFilename = `image_${this.id}.jpg`;
@@ -19,6 +20,7 @@ module.exports = class Image {
   toJSON() {
     return {
       id: this.id,
+      size: this.size,
       createdAt: this.createdAt,
     };
   }

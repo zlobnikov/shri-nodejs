@@ -26,7 +26,8 @@ app.get('/ping', (req, res) => res.json({ ping: 'pong' }));
 
 app.post('/upload', upload.single('image'), async (req, res) => {
   const fileName = req.file.filename.split('.')[0];
-  const img = new Image(fileName);
+  const fileSize = req.file.size;
+  const img = new Image(fileName, fileSize);
 
   await db.insert(img);
 
