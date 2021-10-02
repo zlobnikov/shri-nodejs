@@ -1,16 +1,14 @@
-const http = require('http');
+const express = require('express');
+const { PORT, imageFolder } = require('./config');
+const db = require('./entities/Database');
+const Image = require('./entities/Image');
 
-const PORT = 8080;
+const app = express();
 
-const server = http.createServer((req, res) => {
-  if (req.url === '/') {
-    return res.end('Hi!');
-  }
+app.use(express.json());
 
-  res.statusCode = 404;
-  return res.end('Not Found');
-});
+app.get('/ping', (req, res) => res.json({ ping: 'pong' }));
 
-server.listen(PORT, () => {
-  console.log(`Port: ${PORT}`);
+app.listen(PORT, () => {
+  console.log(`Server started on port ${PORT}`);
 });
