@@ -1,11 +1,13 @@
 const express = require('express');
 const multer = require('multer');
 const path = require('path');
+const fs = require('fs');
 
 const { PORT, imageFolder } = require('./config');
 const db = require('./entities/Database');
 const Image = require('./entities/Image');
 const { generateId } = require('./utils/generateId');
+const { replaceBackground } = require('backrem');
 
 const app = express();
 
@@ -52,6 +54,28 @@ app.delete('/image/:id', async (req, res) => {
 app.get('/image/:id', (req, res) => {
   const imageId = req.params.id;
   res.download(path.resolve(imageFolder, imageId + '.jpg'));
+});
+
+app.get('/merge', (req, res) => {
+  const params = req.query;
+
+  // TODO: validate data
+  params.color = params.color.split(',').map(Number);
+  params.threshold = +params.threshold;
+
+  const front = fs.createReadStream(
+    path.resolve(imageFolder, params.front + '.jpg')
+  );
+
+  const back = fs.createReadStream(
+    path.resolve(imageFolder, params.back + '.jpg')
+  );
+
+  replaceBackground(front, back, params.color, params.threshold).then(
+    readableStream => {
+      readableStream.pipe(res);
+    }
+  );
 });
 
 app.listen(PORT, () => {
