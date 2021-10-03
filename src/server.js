@@ -75,7 +75,7 @@ app.get('/merge', (req, res) => {
     readableStream => {
       readableStream.pipe(res);
     }
-  );
+  ).catch(e => res.status(500).send(e.message));
 });
 
 app.listen(PORT, () => {
