@@ -2,6 +2,7 @@
   "name": "ib-replacer",
   "version": "0.0.0",
   "description": "image's background replacer",
+  Просыпал :)
   "main": "start.js",
   "scripts": {
     "start": "node src/server",
