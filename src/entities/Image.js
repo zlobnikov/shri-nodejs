@@ -5,10 +5,10 @@ const { removeFile } = require('../utils/fs');
 const { generateId } = require('../utils/generateId');
 
 module.exports = class Image {
-  constructor(id, size, createdAt) {
-    this.id = id || generateId();
+  constructor(id = generateId(), size, createdAt = Date.now()) {
+    this.id = id;
     this.size = size;
-    this.createdAt = createdAt || Date.now();
+    this.createdAt = createdAt;
 
     this.originalFilename = `${this.id}.jpg`;
   }
